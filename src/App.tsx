@@ -29,13 +29,13 @@ export default class App extends React.Component<{}, State> {
 
   fetchData = async () => {
     try {
-      const response = await fetch('/data.json')
+      const response = await fetch('data.json')
       const data = await response.json()
       this.data = data as ApplicationData
     } catch (e) {
       this.setState({
         error:
-          'Error: data file could not be loaded. Check the contents of /public/data.json'
+          'Error: data file could not be loaded. Check the location/contents of data.json'
       })
     }
   }
