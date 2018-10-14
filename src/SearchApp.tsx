@@ -4,10 +4,10 @@ import styled from 'styled-components'
 import { GeodataSource } from './App'
 
 interface Props {
-  /** The list of documents loaded by the parent app  */
+  /** The full list of documents  */
   documents: GeodataSource[]
 
-  /** The instance of the Lunr index created by the parent app  */
+  /** A built instance of the Lunr index  */
   searchIndex: lunr.Index
 }
 
@@ -35,11 +35,26 @@ export class SearchApp extends React.Component<Props, State> {
   }
 
   searchResults = () => {
-    const q = this.state.query
+    const query = this.state.query
     return this.props.searchIndex
-      .search(buildQuery(q))
+      .search(buildLunrQuery(query))
       .map(match => this.props.documents[match.ref])
   }
+
+  renderDocuments = (documents: GeodataSource[]) =>
+    documents.map(doc => (
+      <ResultItem key={doc.url}>
+        <section>
+          <a href={doc.url} target="_new">
+            <h1>{doc.name}</h1>
+          </a>
+          <p>{doc.description}</p>
+          {doc.subjects.map(s => (
+            <code key={s}>{s}</code>
+          ))}
+        </section>
+      </ResultItem>
+    ))
 
   render() {
     const isSearching = this.state.query.length > 0
@@ -57,23 +72,9 @@ export class SearchApp extends React.Component<Props, State> {
             onChange={this.handleChangeQuery}
           />
         </Form>
-        <Feedback>{buildQuery(this.state.queryWIP)}</Feedback>
+        <Feedback>{buildLunrQuery(this.state.queryWIP)}</Feedback>
 
-        <ResultList>
-          {documents.map(doc => (
-            <ResultItem key={doc.url}>
-              <section>
-                <a href={doc.url} target="_new">
-                  <h1>{doc.name}</h1>
-                </a>
-                <p>{doc.description}</p>
-                {doc.subjects.map(s => (
-                  <code key={s}>{s}</code>
-                ))}
-              </section>
-            </ResultItem>
-          ))}
-        </ResultList>
+        <ResultList>{this.renderDocuments(documents)}</ResultList>
       </Main>
     )
   }
@@ -87,7 +88,7 @@ const isValidQuery = (q: string): boolean => {
 }
 
 /** Turn input search terms into an opinionated Lunr query */
-const buildQuery = (q: string): string => {
+const buildLunrQuery = (q: string): string => {
   // builds a leading substring match for all terms (even if negated or required)
   if (q.length === 0) {
     return ''
