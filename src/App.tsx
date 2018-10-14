@@ -6,25 +6,7 @@ interface State {
   isDataLoaded: boolean
 }
 
-interface GeodataSource {
-  name: string
-  description: string
-  url: string
-  queryable: boolean
-  downloadable: boolean
-  mapped: boolean
-  spatialExtent: string
-  temporalExtent: string
-  subjects: string[]
-  keywords: string[]
-}
-
-interface ApplicationData {
-  subjects: string[]
-  sources: GeodataSource[]
-}
-
-class App extends React.Component<{}, State> {
+export default class App extends React.Component<{}, State> {
   state = {
     error: '',
     isDataLoaded: false
@@ -92,4 +74,20 @@ const LoadingScreen = styled(FullScreen)`
 
 const Loading = () => <LoadingScreen>Loading…</LoadingScreen>
 
-export default App
+interface GeodataSource {
+  name: string
+  description: string
+  url: string
+  queryable: boolean
+  downloadable: boolean
+  mapped: boolean
+  spatialExtent: string
+  temporalExtent: string
+  subjects: string[]
+  keywords: string[]
+}
+
+interface ApplicationData {
+  subjects: string[]
+  sources: GeodataSource[]
+}
