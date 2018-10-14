@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 interface State {
+  error: string
   isDataLoaded: boolean
 }
 
@@ -24,6 +25,7 @@ interface ApplicationData {
 
 class App extends React.Component<{}, State> {
   state = {
+    error: '',
     isDataLoaded: false
   }
 
@@ -37,23 +39,30 @@ class App extends React.Component<{}, State> {
   }
 
   fetchData = async () => {
-    const response = await fetch('/data.json')
-    const data = await response.json()
-    this.data = data as ApplicationData
+    try {
+      const response = await fetch('/data.json')
+      const data = await response.json()
+      this.data = data as ApplicationData
+    } catch (e) {
+      this.setState({
+        error: 'Error: data file could not be loaded'
+      })
+    }
   }
 
   public render() {
+    if (this.state.error) {
+      return <Error message={this.state.error} />
+    }
     if (this.state.isDataLoaded) {
-      return (
-        <div>
-          {JSON.stringify(this.data.sources.map(s => s.name))}
-        </div>
-      )
+      return <div>{JSON.stringify(this.data.sources.map(s => s.name))}</div>
     } else {
       return <Loading />
     }
   }
 }
+
+const Error = ({ message }: { message: string }) => <div>{message}</div>
 
 const Loading = () => <div>Loading…</div>
 
