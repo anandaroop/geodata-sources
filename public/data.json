@@ -1,0 +1,248 @@
+{
+  "subjects": [
+    "populated places",
+    "administrative divisions",
+    "political boundaries",
+    "water features",
+    "land features",
+    "historical toponyms",
+    "digital elevation model",
+    "resource directory"
+  ],
+  "sources": [
+    {
+      "name": "OpenStreetMap",
+      "description": "Like Wikipedia, but maps",
+      "url": "https://www.openstreetmap.org/",
+      "queryable": false,
+      "downloadable": true,
+      "spatialExtent": "world",
+      "mapped": false,
+      "temporalExtent": null,
+      "subjects": [
+        "populated places",
+        "administrative divisions",
+        "political boundaries",
+        "water features",
+        "land features"
+      ],
+      "keywords": ["osm"]
+    },
+    {
+      "name": "Geonames",
+      "description": "NGA, GNIS and more",
+      "url": "https://www.geonames.org/",
+      "queryable": true,
+      "downloadable": true,
+      "spatialExtent": "world",
+      "mapped": false,
+      "temporalExtent": null,
+      "subjects": [
+        "populated places",
+        "administrative divisions",
+        "political boundaries",
+        "water features",
+        "land features"
+      ],
+      "keywords": []
+    },
+    {
+      "name": "Overpass Turbo",
+      "description": "Query builder & wizard for OSM Overpass queries",
+      "url": "https://overpass-turbo.eu/",
+      "queryable": true,
+      "downloadable": false,
+      "spatialExtent": "world",
+      "mapped": false,
+      "temporalExtent": null,
+      "subjects": [],
+      "keywords": ["osm"]
+    },
+    {
+      "name": "Natural Earth",
+      "description": "Global vector and raster data for cultural and physical features",
+      "url": "https://www.naturalearthdata.com",
+      "queryable": false,
+      "downloadable": true,
+      "spatialExtent": "world",
+      "mapped": false,
+      "temporalExtent": null,
+      "subjects": [
+        "populated places",
+        "administrative divisions",
+        "political boundaries",
+        "water features",
+        "land features"
+      ],
+      "keywords": ["shaded relief"]
+    },
+    {
+      "name": "Ancient World Mapping Center",
+      "description": "Research center at UNC, with a focus on the geography of the ancient Mediterranean world. Creators of the Barrington Atlas of the Greek and Roman World",
+      "url": "http://awmc.unc.edu/wordpress/api-documentation/",
+      "queryable": true,
+      "downloadable": false,
+      "spatialExtent": "mediterranean",
+      "mapped": false,
+      "temporalExtent": "antiquity",
+      "subjects": [
+        "populated places",
+        "administrative divisions",
+        "political boundaries",
+        "historical toponyms"
+      ],
+      "keywords": []
+    },
+    {
+      "name": "Antiquity À-la-carte",
+      "description": "Project of AWMC, includes Pleiades data",
+      "url": "http://awmc.unc.edu/awmc/applications/alacarte/",
+      "queryable": true,
+      "downloadable": true,
+      "spatialExtent": "mediterranean",
+      "mapped": false,
+      "temporalExtent": "antiquity",
+      "subjects": [
+        "populated places",
+        "administrative divisions",
+        "political boundaries",
+        "historical toponyms"
+      ],
+      "keywords": []
+    },
+    {
+      "name": "Pleiades",
+      "description": "Pleiades has extensive coverage for the Greek and Roman world, and is expanding into Ancient Near Eastern, Byzantine, Celtic, and Early Medieval geography.",
+      "url": "https://pleiades.stoa.org/",
+      "queryable": true,
+      "downloadable": true,
+      "spatialExtent": "europe, mediterannean, ancient near east",
+      "mapped": false,
+      "temporalExtent": "antiquity to medieval",
+      "subjects": [
+        "populated places",
+        "administrative divisions",
+        "political boundaries",
+        "historical toponyms"
+      ],
+      "keywords": []
+    },
+    {
+      "name": "CShapes",
+      "description": "CShapes is a dataset that provides historical maps of state boundaries and capitals in the post-World War II period.",
+      "url": "http://nils.weidmann.ws/projects/cshapes.html",
+      "queryable": false,
+      "downloadable": true,
+      "spatialExtent": "world",
+      "mapped": false,
+      "temporalExtent": "post world war ii",
+      "subjects": ["political boundaries", "historical toponyms"],
+      "keywords": []
+    },
+    {
+      "name": "China Historical GIS",
+      "description": "Harvard's China Historical Geographic Information System, CHGIS, is a free database and API for populated places and historical administrative units for the period of Chinese history between 221 BCE and 1911 CE",
+      "url": "https://sites.fas.harvard.edu/~chgis/",
+      "queryable": true,
+      "downloadable": true,
+      "spatialExtent": "china",
+      "mapped": false,
+      "temporalExtent": "221 BCE to 1911 CE",
+      "subjects": [],
+      "keywords": []
+    },
+    {
+      "name": "chinaXmap",
+      "description": "chinaXmap provides the basic historical map layers for all periods in China's history covered by Harvard's ChinaX (SW12x) course",
+      "url": "https://worldmap.harvard.edu/maps/chinaX",
+      "queryable": true,
+      "downloadable": false,
+      "mapped": true,
+      "spatialExtent": "china",
+      "temporalExtent": "ancient to modern",
+      "subjects": [
+        "populated places",
+        "administrative divisions",
+        "political boundaries",
+        "water features",
+        "land features",
+        "historical toponyms"
+      ],
+      "keywords": []
+    },
+    {
+      "name": "Buddhist Digital Resource Center",
+      "description": "Founded as the Tibetan Buddhist Resource Center, BDRC has located, digitized, cataloged, and archived over 15 million pages of culturally significant Buddhist works. See also https://worldmap.harvard.edu/maps/tibet",
+      "url": "https://www.tbrc.org/#!places",
+      "queryable": true,
+      "downloadable": false,
+      "mapped": true,
+      "spatialExtent": "tibet",
+      "temporalExtent": null,
+      "subjects": [
+        "populated places",
+        "administrative divisions",
+        "political boundaries",
+        "historical toponyms"
+      ],
+      "keywords": []
+    },
+    {
+      "name": "Japan Historical GIS",
+      "description": "Subsection of Harvard's China Historical GIS that is dedicated to Japan",
+      "url": "https://sites.fas.harvard.edu/~chgis/data/japan/",
+      "queryable": true,
+      "downloadable": true,
+      "mapped": false,
+      "spatialExtent": "japan",
+      "temporalExtent": null,
+      "subjects": [],
+      "keywords": []
+    },
+    {
+      "name": "Where to Find GIS Data for Historical Country Boundaries",
+      "description": "Listed here are available sites that offer historical country data in GIS file formats for download. — article by Caitlin Dempsey",
+      "url": "https://www.gislounge.com/find-gis-data-historical-country-boundaries/",
+      "queryable": false,
+      "downloadable": false,
+      "mapped": false,
+      "spatialExtent": null,
+      "temporalExtent": null,
+      "subjects": [
+        "administrative divisions",
+        "political boundaries",
+        "historical toponyms",
+        "resource directory"
+      ],
+      "keywords": []
+    },
+    {
+      "name": "Atlas of Historical County Boundaries",
+      "description": "The Atlas presents in maps and text complete data about the creation and all subsequent changes (dated to the day) in the size, shape, and location of every county in the fifty United States and the District of Columbia.",
+      "url": "https://publications.newberry.org/ahcbp/index.html",
+      "queryable": false,
+      "downloadable": true,
+      "mapped": false,
+      "spatialExtent": "usa",
+      "temporalExtent": "18th century to present",
+      "subjects": ["administrative divisions", "historical toponyms"],
+      "keywords": []
+    },
+    {
+      "name": "Database of Global Administrative Areas (GADM)",
+      "description": "GADM provides maps and spatial data for all countries and their sub-divisions. You can browse our maps or download the data to make your own maps.",
+      "url": "https://gadm.org",
+      "queryable": false,
+      "downloadable": true,
+      "mapped": true,
+      "spatialExtent": "world",
+      "temporalExtent": "present",
+      "subjects": [
+        "administrative divisions",
+        "political boundaries",
+        "historical toponyms"
+      ],
+      "keywords": []
+    }
+  ]
+}
