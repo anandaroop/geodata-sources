@@ -1,24 +1,30 @@
+import * as lunr from 'lunr'
 import * as React from 'react'
 import styled from 'styled-components'
 
+import { SearchApp } from './SearchApp'
 interface State {
   error: string
   isDataLoaded: boolean
+  isSearchIndexReady: boolean
 }
 
 export default class App extends React.Component<{}, State> {
   state = {
     error: '',
-    isDataLoaded: false
+    isDataLoaded: false,
+    isSearchIndexReady: false
   }
 
   private data: ApplicationData
+  private searchIndex: lunr.Index
 
   async componentDidMount() {
     await this.fetchData()
-    this.setState({
-      isDataLoaded: true
-    })
+    this.setState({ isDataLoaded: true })
+
+    this.createIndex()
+    this.setState({ isSearchIndexReady: true })
   }
 
   fetchData = async () => {
@@ -34,6 +40,18 @@ export default class App extends React.Component<{}, State> {
     }
   }
 
+  createIndex = () => {
+    const documents = this.data.sources
+    this.searchIndex = lunr(function() {
+      this.ref('offset')
+      this.field('name')
+      this.field('description')
+      documents.forEach((doc, i) => {
+        this.add({ offset: i, ...doc })
+      }, this)
+    })
+  }
+
   public render() {
     if (this.state.error) {
       return <Error message={this.state.error} />
@@ -43,7 +61,11 @@ export default class App extends React.Component<{}, State> {
       return <Loading />
     }
 
-    return <div>{JSON.stringify(this.data.sources.map(s => s.name))}</div>
+    if (!this.state.isSearchIndexReady) {
+      return <Indexing />
+    }
+
+    return <SearchApp documents={this.data.sources} searchIndex={this.searchIndex} />
   }
 }
 
@@ -67,14 +89,16 @@ const Error = ({ message }: { message: string }) => (
   <ErrorScreen>{message}</ErrorScreen>
 )
 
-const LoadingScreen = styled(FullScreen)`
+const NoticeScreen = styled(FullScreen)`
   background: lightgray;
   color: gray;
 `
 
-const Loading = () => <LoadingScreen>Loading…</LoadingScreen>
+const Loading = () => <NoticeScreen>Loading data…</NoticeScreen>
 
-interface GeodataSource {
+const Indexing = () => <NoticeScreen>Creating search index…</NoticeScreen>
+
+export interface GeodataSource {
   name: string
   description: string
   url: string
