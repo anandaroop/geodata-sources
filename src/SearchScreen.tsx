@@ -19,7 +19,7 @@ interface State {
   queryWIP: string
 }
 
-export class SearchApp extends React.Component<Props, State> {
+export class SearchScreen extends React.Component<Props, State> {
   state = {
     query: '',
     queryWIP: ''

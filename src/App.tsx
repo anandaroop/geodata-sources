@@ -2,7 +2,7 @@ import * as lunr from 'lunr'
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { SearchApp } from './SearchApp'
+import { SearchScreen } from './SearchScreen'
 interface State {
   error: string
   isDataLoaded: boolean
@@ -71,7 +71,10 @@ export default class App extends React.Component<{}, State> {
     }
 
     return (
-      <SearchApp documents={this.data.sources} searchIndex={this.searchIndex} />
+      <SearchScreen
+        documents={this.data.sources}
+        searchIndex={this.searchIndex}
+      />
     )
   }
 }
