@@ -46,6 +46,11 @@ export default class App extends React.Component<{}, State> {
       this.ref('offset')
       this.field('name')
       this.field('description')
+      this.field('spatialExtent')
+      this.field('temporalExtent')
+      this.field('subjects')
+      this.field('keywords')
+
       documents.forEach((doc, i) => {
         this.add({ offset: i, ...doc })
       }, this)
