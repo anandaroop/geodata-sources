@@ -4,11 +4,15 @@ import styled from 'styled-components'
 import { GeodataSource } from './App'
 
 interface Props {
+  /** The list of documents loaded by the parent app  */
   documents: GeodataSource[]
+
+  /** The instance of the Lunr index created by the parent app  */
   searchIndex: lunr.Index
 }
 
 interface State {
+  /** The current search query */
   query: string
 }
 
@@ -31,7 +35,9 @@ export class SearchApp extends React.Component<Props, State> {
 
   render() {
     const isSearching = this.state.query.length > 0
-    const documents = isSearching ? this.searchResults() : this.props.documents
+    const documents: GeodataSource[] = isSearching
+      ? this.searchResults()
+      : this.props.documents
 
     return (
       <Main>

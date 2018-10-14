@@ -65,7 +65,9 @@ export default class App extends React.Component<{}, State> {
       return <Indexing />
     }
 
-    return <SearchApp documents={this.data.sources} searchIndex={this.searchIndex} />
+    return (
+      <SearchApp documents={this.data.sources} searchIndex={this.searchIndex} />
+    )
   }
 }
 
@@ -99,19 +101,41 @@ const Loading = () => <NoticeScreen>Loading data…</NoticeScreen>
 const Indexing = () => <NoticeScreen>Creating search index…</NoticeScreen>
 
 export interface GeodataSource {
+  /** Name of the resource */
   name: string
+
+  /** Description of the resource */
   description: string
+
+  /** URL of the resource */
   url: string
+
+  /** Can the resource be queried by a web form or API? */
   queryable: boolean
+
+  /** Can a date dump be downloaded from the resource? */
   downloadable: boolean
+
+  /** Does the resource visualize its data on a map? */
   mapped: boolean
+
+  /** Parts of the world that are covered by the resource */
   spatialExtent: string
+
+  /** Periods of time that are covered by the resource */
   temporalExtent: string
+
+  /** Subjects (from a controlled list) that are covered by this resource */
   subjects: string[]
+
+  /** Additional keywords for searching this resource */
   keywords: string[]
 }
 
 interface ApplicationData {
+  /** Controlled list of subjects that describe the resources */
   subjects: string[]
+
+  /** A list of online resources */
   sources: GeodataSource[]
 }
