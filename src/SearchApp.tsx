@@ -14,22 +14,30 @@ interface Props {
 interface State {
   /** The current search query */
   query: string
+
+  /** The WIP search query being typed, since it may not yet be valid to send to the search index */
+  queryWIP: string
 }
 
 export class SearchApp extends React.Component<Props, State> {
   state = {
-    query: ''
+    query: '',
+    queryWIP: ''
   }
 
   handleChangeQuery = (e: any) => {
     const value = e.target.value
-    this.setState({ query: value })
+    if (isValidQuery(value)) {
+      this.setState({ query: value, queryWIP: value })
+    } else {
+      this.setState({ queryWIP: value })
+    }
   }
 
   searchResults = () => {
     const q = this.state.query
     return this.props.searchIndex
-      .search(q)
+      .search(buildQuery(q))
       .map(match => this.props.documents[match.ref])
   }
 
@@ -45,10 +53,11 @@ export class SearchApp extends React.Component<Props, State> {
         <Form autoComplete="off" onSubmit={e => e.preventDefault()}>
           <SearchInput
             name="query"
-            value={this.state.query}
+            value={this.state.queryWIP}
             onChange={this.handleChangeQuery}
           />
         </Form>
+        <Feedback>{buildQuery(this.state.queryWIP)}</Feedback>
 
         <ResultList>{documents.map(formatResultItem)}</ResultList>
       </Main>
@@ -68,6 +77,24 @@ const formatResultItem = (source: GeodataSource) => (
   </ResultItem>
 )
 
+const isValidQuery = (q: string): boolean => {
+  if (q.match(/[-+]$/)) {
+    return false
+  }
+  return true
+}
+
+/** Turn input search terms into an opinionated Lunr query */
+const buildQuery = (q: string): string => {
+  // builds a leading substring match for all terms (even if negated or required)
+  if (q.length === 0) {
+    return ''
+  }
+  const tokens = q.trim().split(/\s+/)
+  const query = tokens.map(t => `${t}*`).join(' ')
+  return query
+}
+
 const Main = styled.main`
   padding: 1em;
   max-width: 60em;
@@ -81,6 +108,11 @@ const SearchInput = styled.input.attrs({
   type: 'text'
 })`
   font-size: 1.2em;
+`
+
+const Feedback = styled.code`
+  color: #999;
+  font-family: monospace;
 `
 
 const ResultList = styled.ul`
