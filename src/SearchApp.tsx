@@ -59,23 +59,25 @@ export class SearchApp extends React.Component<Props, State> {
         </Form>
         <Feedback>{buildQuery(this.state.queryWIP)}</Feedback>
 
-        <ResultList>{documents.map(formatResultItem)}</ResultList>
+        <ResultList>
+          {documents.map(doc => (
+            <ResultItem key={doc.url}>
+              <section>
+                <a href={doc.url} target="_new">
+                  <h1>{doc.name}</h1>
+                </a>
+                <p>{doc.description}</p>
+                {doc.subjects.map(s => (
+                  <code key={s}>{s}</code>
+                ))}
+              </section>
+            </ResultItem>
+          ))}
+        </ResultList>
       </Main>
     )
   }
 }
-
-const formatResultItem = (source: GeodataSource) => (
-  <ResultItem key={source.name}>
-    <section>
-      <h1 tabIndex={0}>{source.name}</h1>
-      <p>{source.description}</p>
-      {source.subjects.map(s => (
-        <code key={s}>{s}</code>
-      ))}
-    </section>
-  </ResultItem>
-)
 
 const isValidQuery = (q: string): boolean => {
   if (q.match(/[-+]$/)) {
@@ -107,7 +109,9 @@ const SearchInput = styled.input.attrs({
   placeholder: 'Enter search term',
   type: 'text'
 })`
+  width: 100%;
   font-size: 1.2em;
+  padding: 0.2em 0.1em;
 `
 
 const Feedback = styled.code`
