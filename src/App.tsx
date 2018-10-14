@@ -1,4 +1,5 @@
 import * as React from 'react'
+import styled from 'styled-components'
 
 interface State {
   error: string
@@ -45,7 +46,8 @@ class App extends React.Component<{}, State> {
       this.data = data as ApplicationData
     } catch (e) {
       this.setState({
-        error: 'Error: data file could not be loaded'
+        error:
+          'Error: data file could not be loaded. Check the contents of /public/data.json'
       })
     }
   }
@@ -54,16 +56,40 @@ class App extends React.Component<{}, State> {
     if (this.state.error) {
       return <Error message={this.state.error} />
     }
-    if (this.state.isDataLoaded) {
-      return <div>{JSON.stringify(this.data.sources.map(s => s.name))}</div>
-    } else {
+
+    if (!this.state.isDataLoaded) {
       return <Loading />
     }
+
+    return <div>{JSON.stringify(this.data.sources.map(s => s.name))}</div>
   }
 }
 
-const Error = ({ message }: { message: string }) => <div>{message}</div>
+const FullScreen = styled.div`
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
-const Loading = () => <div>Loading…</div>
+const ErrorScreen = styled(FullScreen)`
+  background: darkred;
+  color: white;
+`
+
+const Error = ({ message }: { message: string }) => (
+  <ErrorScreen>{message}</ErrorScreen>
+)
+
+const LoadingScreen = styled(FullScreen)`
+  background: lightgray;
+  color: gray;
+`
+
+const Loading = () => <LoadingScreen>Loading…</LoadingScreen>
 
 export default App
