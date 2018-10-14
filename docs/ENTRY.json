@@ -1,0 +1,12 @@
+{
+  "name": "NAME",
+  "description": "DESC",
+  "url": "URL",
+  "queryable": false,
+  "downloadable": false,
+  "mapped": false,
+  "spatialExtent": "EXTENT",
+  "temporalExtent": null,
+  "subjects": [],
+  "keywords": []
+}
