@@ -1,5 +1,6 @@
 {
   "name": "geodata-sources-ts",
+  "homepage": "https://anandaroop.github.io/geodata-sources",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
