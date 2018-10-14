@@ -137,7 +137,7 @@
       "mapped": false,
       "temporalExtent": "post world war ii",
       "subjects": ["political boundaries", "historical toponyms"],
-      "keywords": []
+      "keywords": ["admin0"]
     },
     {
       "name": "China Historical GIS",
@@ -214,7 +214,7 @@
         "historical toponyms",
         "resource directory"
       ],
-      "keywords": []
+      "keywords": ["admin0"]
     },
     {
       "name": "Atlas of Historical County Boundaries",
@@ -226,7 +226,7 @@
       "spatialExtent": "usa",
       "temporalExtent": "18th century to present",
       "subjects": ["administrative divisions", "historical toponyms"],
-      "keywords": []
+      "keywords": ["admin2"]
     },
     {
       "name": "Database of Global Administrative Areas (GADM)",
@@ -242,7 +242,43 @@
         "political boundaries",
         "historical toponyms"
       ],
-      "keywords": []
+      "keywords": ["subnational", "admin1"]
+    },
+    {
+      "name": "Wikidata",
+      "description": "Structured data version of much Wikipedia data. Coordinates available in the \"coordinate location\" property (P625).",
+      "url": "https://www.wikidata.org/",
+      "queryable": true,
+      "downloadable": false,
+      "mapped": true,
+      "spatialExtent": "world",
+      "temporalExtent": "ancient to modern",
+      "subjects": [
+        "populated places",
+        "administrative divisions",
+        "political boundaries",
+        "water features",
+        "land features",
+        "historical toponyms"
+      ],
+      "keywords": ["lod", "linked open data"]
+    },
+    {
+      "name": "Getty Thesaurus of Geographic Names",
+      "description": "One of the Getty's controlled vocabularies, for cataloging and scholarship of art and architectural history and archaeology",
+      "url": "http://www.getty.edu/research/tools/vocabularies/tgn/",
+      "queryable": false,
+      "downloadable": false,
+      "mapped": false,
+      "spatialExtent": "world",
+      "temporalExtent": "ancient to modern",
+      "subjects": [
+        "populated places",
+        "administrative divisions",
+        "political boundaries",
+        "historical toponyms"
+      ],
+      "keywords": ["art"]
     }
   ]
 }
