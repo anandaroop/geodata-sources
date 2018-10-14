@@ -67,6 +67,7 @@ export class SearchScreen extends React.Component<Props, State> {
         {/* tslint:disable-next-line:jsx-no-lambda */}
         <Form autoComplete="off" onSubmit={e => e.preventDefault()}>
           <SearchInput
+            autoFocus={true}
             name="query"
             value={this.state.queryWIP}
             onChange={this.handleChangeQuery}
