@@ -5,11 +5,11 @@ describe('resource urls', () => {
   data.sources.forEach(source => {
     test(`${source.url} is reachable`, done => {
       const options = {
-        url: source.url,
         headers: {
           'User-Agent':
             'Node.js (https://anandaroop.github.io/geodata-sources/)'
-        }
+        },
+        url: source.url
       }
 
       function validateResponse(error, response) {
