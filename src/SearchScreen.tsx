@@ -121,7 +121,7 @@ const Feedback = styled.code`
   font-family: monospace;
 `
 
-const ResultList = styled.ul`
+const ResultList = styled.ul.attrs({ id: 'documents' })`
   list-style-type: none;
 `
 

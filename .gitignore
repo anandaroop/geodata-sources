@@ -10,6 +10,7 @@
 
 # production
 /build
+/geodata-sources
 
 # misc
 .DS_Store
