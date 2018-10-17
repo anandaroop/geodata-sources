@@ -17,16 +17,18 @@
     "importHelpers": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "types": ["node"]
   },
   "exclude": [
-    "node_modules",
+    "acceptance-tests",
     "build",
     "docs",
-    "scripts",
-    "acceptance-tests",
-    "webpack",
+    "geodata-sources",
     "jest",
-    "src/setupTests.ts"
+    "node_modules",
+    "scripts",
+    "src/setupTests.ts",
+    "webpack"
   ]
 }
