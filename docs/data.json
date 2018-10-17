@@ -91,7 +91,7 @@
         "political boundaries",
         "historical toponyms"
       ],
-      "keywords": []
+      "keywords": ["classical antiquity"]
     },
     {
       "name": "Antiquity À-la-carte",
@@ -108,7 +108,7 @@
         "political boundaries",
         "historical toponyms"
       ],
-      "keywords": []
+      "keywords": ["classical antiquity"]
     },
     {
       "name": "Pleiades",
@@ -125,7 +125,7 @@
         "political boundaries",
         "historical toponyms"
       ],
-      "keywords": []
+      "keywords": ["classical antiquity"]
     },
     {
       "name": "CShapes",
@@ -154,7 +154,7 @@
     {
       "name": "chinaXmap",
       "description": "chinaXmap provides the basic historical map layers for all periods in China's history covered by Harvard's ChinaX (SW12x) course",
-      "url": "https://worldmap.harvard.edu/maps/chinaX",
+      "url": "http://worldmap.harvard.edu/maps/chinaX",
       "queryable": true,
       "downloadable": false,
       "mapped": true,
