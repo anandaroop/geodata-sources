@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/jquery": "3.3.6",
     "@types/lunr": "^2.1.6",
     "lunr": "^2.3.3",
     "react": "^16.5.2",
