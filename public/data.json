@@ -44,7 +44,7 @@
         "water features",
         "land features"
       ],
-      "keywords": []
+      "keywords": ["populated places"]
     },
     {
       "name": "Overpass Turbo",
@@ -55,7 +55,12 @@
       "spatialExtent": "world",
       "mapped": false,
       "temporalExtent": null,
-      "subjects": [],
+      "subjects": [
+        "populated places",
+        "administrative divisions",
+        "political boundaries",
+        "water features"
+      ],
       "keywords": ["osm"]
     },
     {
