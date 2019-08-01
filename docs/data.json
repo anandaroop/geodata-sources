@@ -49,7 +49,7 @@
     {
       "name": "Overpass Turbo",
       "description": "Query builder & wizard for OSM Overpass queries",
-      "url": "https://overpass-turbo.eu/",
+      "url": "https://overpass-turbo.eu/s/LfL",
       "queryable": true,
       "downloadable": false,
       "spatialExtent": "world",
