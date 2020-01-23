@@ -284,6 +284,18 @@
         "historical toponyms"
       ],
       "keywords": ["art"]
+    },
+    {
+      "name": "Old World Trade Routes (OWTRAD) Project",
+      "description": "This site supports online research in the field of dromography (the study of trade routes) and provides a public-access electronic archive of geo/chrono-referenced data on land, river and maritime trade routes of Eurasia and Africa during the period 4,000 BCE - circa 1820 CE.",
+      "url": "http://www.ciolek.com/owtrad.html",
+      "queryable": false,
+      "downloadable": true,
+      "mapped": true,
+      "spatialExtent": "europe, africa and asia",
+      "temporalExtent": "ancient to modern",
+      "subjects": ["historical toponyms", "trade routes"],
+      "keywords": ["trade routes", "dromography", "silk road", "silk route"]
     }
   ]
 }
